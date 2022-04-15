@@ -49,5 +49,9 @@
     "marked": "^4.0.14",
     "rollup": "^2.70.1",
     "semantic-release": "^19.0.2"
+  },
+  "dependencies": {
+    "puppeteer": "^13.5.2",
+    "mermaid": "^9.0.0"
   }
 }
