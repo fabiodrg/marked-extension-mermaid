@@ -1,23 +1,16 @@
-export default function(options = {}) {
-  // extension code here
+function toHtml(code) {
+  return '<div class="mermaid">\n' + code + '\n</div>\n';
+}
 
+export default function() {
   return {
-    tokenizer: {
-      paragraph(src) {
-        if (src !== 'example markdown') {
+    renderer: {
+      code(code, infostring, escaped) {
+        if (infostring === 'mermaid') {
+          return toHtml(code);
+        } else {
           return false;
         }
-
-        const token = {
-          type: 'paragraph',
-          raw: src,
-          text: 'example html',
-          tokens: []
-        };
-
-        this.lexer.inline(token.text, token.tokens);
-
-        return token;
       }
     }
   };
